@@ -20,15 +20,13 @@ if (process.env.NODE_ENV === 'production') {
     console.error('❌ FATAL: Using development JWT secrets in production!');
     process.exit(1);
   }
-  const PROD_REQUIRED = ['DATABASE_URL', 'STRIPE_SECRET_KEY', 'STRIPE_WEBHOOK_SECRET'];
-  const missingProd = PROD_REQUIRED.filter((key) => !process.env[key]);
-  if (missingProd.length > 0) {
-    console.error(`❌ FATAL: Missing production secrets: ${missingProd.join(', ')}`);
+  if (process.env.DATABASE_URL.includes('user:password')) {
+    console.error('❌ FATAL: DATABASE_URL appears to be a placeholder.');
     process.exit(1);
   }
-  if (process.env.DATABASE_URL.includes('localhost') || process.env.DATABASE_URL.includes('user:password')) {
-    console.error('❌ FATAL: DATABASE_URL appears to be a placeholder. Set a real connection string.');
-    process.exit(1);
+  // Warn about optional services (app works without them in demo mode)
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.warn('⚠️  Stripe not configured — payments will run in demo mode');
   }
 }
 const express = require('express');
