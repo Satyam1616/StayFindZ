@@ -1,0 +1,313 @@
+/* ─── Navbar Styles ──────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-light);
+  height: var(--navbar-height);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--space-4);
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Search Bar */
+.navbar-search {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1.5px solid var(--color-border);
+  border-radius: 40px;
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+  background: var(--color-bg);
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-text);
+  box-shadow: var(--shadow-md);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.search-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 90, 95, 0.4);
+}
+
+/* Right Section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.navbar-host-link {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 20px;
+  transition: background var(--transition-fast);
+}
+
+.navbar-host-link:hover {
+  background: var(--color-bg-hover);
+}
+
+/* Menu Button */
+.navbar-menu-container {
+  position: relative;
+}
+
+.navbar-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: 24px;
+  transition: box-shadow var(--transition-fast);
+  background: var(--color-bg);
+}
+
+.navbar-menu-btn:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.menu-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-secondary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-avatar-lg {
+  width: 44px;
+  height: 44px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dropdown */
+.navbar-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  min-width: 240px;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
+  padding: var(--space-2) 0;
+  animation: dropdownIn 0.15s ease-out;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdown-user-info {
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-user-name {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.dropdown-user-email {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--color-border-light);
+  margin: var(--space-1) 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  width: 100%;
+  text-align: left;
+  transition: background var(--transition-fast);
+  color: var(--color-text);
+}
+
+.dropdown-item:hover {
+  background: var(--color-bg-secondary);
+}
+
+.dropdown-item-bold {
+  font-weight: 600;
+}
+
+.dropdown-logout {
+  color: var(--color-error);
+}
+
+/* Mobile */
+.mobile-menu-btn {
+  display: none;
+  padding: var(--space-2);
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobile-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background: var(--color-bg);
+  padding: var(--space-6);
+  animation: slideIn 0.3s ease;
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-search-form {
+  margin-bottom: var(--space-6);
+}
+
+.mobile-user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-4);
+}
+
+.mobile-user-name {
+  font-weight: 600;
+}
+
+.mobile-user-role {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-text);
+}
+
+.mobile-logout {
+  color: var(--color-error);
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-search,
+  .navbar-right {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+}

@@ -1,0 +1,177 @@
+/* ─── Property Card Styles ───────────────────────────────── */
+.property-card {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-base);
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Image Container */
+.card-image-container {
+  position: relative;
+  aspect-ratio: 20 / 19;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-hover);
+}
+
+.card-image-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-image {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation */
+.card-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.property-card:hover .card-nav {
+  opacity: 1;
+}
+
+.card-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: white;
+}
+
+.card-nav-prev {
+  left: 8px;
+}
+
+.card-nav-next {
+  right: 8px;
+}
+
+/* Dots */
+.card-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.6);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.card-dot.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+/* Like Button */
+.card-like {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: var(--space-2);
+  color: white;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+  transition: transform var(--transition-fast);
+}
+
+.card-like:hover {
+  transform: scale(1.15);
+}
+
+.card-like.liked {
+  color: var(--color-primary);
+}
+
+.card-like.liked svg {
+  fill: var(--color-primary);
+}
+
+/* Card Info */
+.card-info {
+  padding: var(--space-3) 0;
+}
+
+.card-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card-location {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.star-icon {
+  fill: var(--color-text);
+}
+
+.card-title {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.card-type {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+  margin-top: 2px;
+}
+
+.card-price {
+  margin-top: var(--space-2);
+}
+
+.price-amount {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+.price-unit {
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}

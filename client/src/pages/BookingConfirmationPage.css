@@ -1,0 +1,204 @@
+/* ─── Booking Confirmation Styles ────────────────────────── */
+.confirmation-page {
+  padding: var(--space-10) 0;
+  min-height: 60vh;
+}
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-8);
+}
+
+.status-banner h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.status-banner p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.confirmation-grid {
+  max-width: 700px;
+}
+
+.confirmation-details {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+}
+
+.confirmation-listing {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.confirmation-image {
+  width: 160px;
+  height: 120px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.confirmation-listing h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.conf-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.conf-host {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.confirmation-dates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.conf-date-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.conf-label {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+}
+
+.conf-value {
+  font-weight: 600;
+}
+
+.confirmation-price h4 {
+  margin-bottom: var(--space-4);
+}
+
+.cancel-btn {
+  width: 100%;
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.cancel-btn:hover {
+  background: var(--color-error);
+  color: white;
+}
+
+/* Cancel Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.cancel-modal {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+}
+
+.cancel-modal h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-3);
+}
+
+.cancel-modal p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .confirmation-listing {
+    flex-direction: column;
+  }
+  .confirmation-image {
+    width: 100%;
+    height: 200px;
+  }
+  .confirmation-dates {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* Review Form */
+.review-form h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.review-form-hint {
+  color: var(--color-text-secondary);
+  font-size: var(--font-sm);
+  margin-bottom: var(--space-4);
+}
+
+.review-stars-input {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-border);
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.star-btn.active {
+  color: #FFB400;
+}
+
+.review-form .input-textarea {
+  margin-bottom: var(--space-4);
+}
+
+.existing-review h4 {
+  margin-bottom: var(--space-2);
+}
+
+.review-rating-display {
+  color: #FFB400;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}

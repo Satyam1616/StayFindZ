@@ -1,0 +1,518 @@
+/* ─── Dashboard Styles ───────────────────────────────────── */
+.dashboard-page {
+  padding: var(--space-10) 0;
+  min-height: 70vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.dashboard-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+}
+
+/* Tabs */
+.dashboard-tabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--color-border-light);
+  margin-bottom: var(--space-8);
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--color-text);
+}
+
+.tab-btn.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-primary);
+}
+
+.tab-count {
+  font-size: var(--font-size-xs);
+  background: var(--color-bg-secondary);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.tab-count-alert {
+  background: var(--color-primary);
+  color: white;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Listings Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+.dashboard-listing-card {
+  display: flex;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.dashboard-listing-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.dlc-image {
+  width: 180px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.dlc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dlc-inactive-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.dlc-info {
+  flex: 1;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+}
+
+.dlc-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dlc-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.dlc-stats {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.dlc-price {
+  font-weight: 600;
+}
+
+.dlc-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.dlc-bookings {
+  color: var(--color-text-secondary);
+}
+
+.dlc-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.dlc-delete {
+  color: var(--color-error) !important;
+}
+
+/* ─── Bookings List ──────────────────────────────────────── */
+.dashboard-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.booking-row {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-fast);
+  align-items: center;
+}
+
+.booking-row:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-row-pending {
+  border-color: #FFB400;
+  border-width: 2px;
+  background: rgba(255, 180, 0, 0.03);
+}
+
+.booking-row-image {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.booking-row-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.booking-row-info {
+  flex: 1;
+}
+
+.booking-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.booking-row-top h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.booking-row-details {
+  display: flex;
+  gap: var(--space-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  flex-wrap: wrap;
+}
+
+.booking-row-details span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.booking-row-price {
+  font-weight: 600;
+  color: var(--color-text) !important;
+}
+
+/* Approve / Reject Buttons */
+.booking-row-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.btn-approve {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  background: #E6F7E9;
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  border: 1.5px solid transparent;
+}
+
+.btn-approve:hover {
+  background: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
+
+.btn-reject {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  background: #FDECEA;
+  color: var(--color-error);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  border: 1.5px solid transparent;
+}
+
+.btn-reject:hover {
+  background: var(--color-error);
+  color: white;
+  border-color: var(--color-error);
+}
+
+/* ─── Earnings Tab ───────────────────────────────────────── */
+.earnings-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stat-card-primary {
+  background: linear-gradient(135deg, #FFF1F2, #FEE2E2);
+  border-color: rgba(255, 90, 95, 0.15);
+}
+
+.stat-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(255, 90, 95, 0.1);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.icon-success {
+  background: rgba(0, 138, 5, 0.1);
+  color: var(--color-success);
+}
+
+.icon-warning {
+  background: rgba(224, 121, 18, 0.1);
+  color: var(--color-warning);
+}
+
+.icon-info {
+  background: rgba(25, 118, 210, 0.1);
+  color: #1976D2;
+}
+
+.stat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-value {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.stat-card-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Revenue Chart */
+.earnings-chart-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.chart-header h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.chart-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.chart-container {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-6);
+  height: 200px;
+  padding-bottom: var(--space-8);
+}
+
+.chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.chart-bar {
+  width: 60%;
+  max-width: 48px;
+  background: linear-gradient(to top, var(--color-primary), var(--color-primary-light));
+  border-radius: 6px 6px 0 0;
+  min-height: 4px;
+}
+
+.chart-bar-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+  font-weight: 600;
+}
+
+.chart-bar-value {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* Summary */
+.earnings-summary {
+  display: flex;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* ─── Empty State ────────────────────────────────────────── */
+.dashboard-empty {
+  text-align: center;
+  padding: var(--space-16) 0;
+}
+
+.dashboard-empty .empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.dashboard-empty h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+}
+
+.dashboard-empty p {
+  color: var(--color-text-secondary);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .earnings-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-listing-card {
+    flex-direction: column;
+  }
+  .dlc-image {
+    width: 100%;
+    height: 200px;
+  }
+  .booking-row {
+    flex-wrap: wrap;
+  }
+  .booking-row-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .booking-row-details {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .earnings-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .earnings-summary {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .chart-container {
+    gap: var(--space-3);
+    height: 160px;
+  }
+}
